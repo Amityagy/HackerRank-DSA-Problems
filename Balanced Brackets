@@ -1,0 +1,25 @@
+string isBalanced(string s) {
+vector<char> stc;
+string blnc;
+for(int i=0;i<s.length();i++){
+    if(s.length()%2 !=0){
+        return "NO";
+    }
+    if(stc.empty()){
+        stc.push_back(s.at(i));
+    }
+    else if(int(stc.back())==(int(s.at(i))-1) || int(stc.back())==(int(s.at(i))-2)){
+        stc.pop_back();
+        continue;
+    }
+    else
+        stc.push_back(s.at(i));
+}
+if(stc.empty()){
+    blnc="YES";
+}
+else {
+    blnc="NO";
+}
+return blnc;
+}
