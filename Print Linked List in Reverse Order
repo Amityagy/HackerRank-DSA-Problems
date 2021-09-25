@@ -1,0 +1,15 @@
+void reversePrint(SinglyLinkedListNode* llist) {
+SinglyLinkedListNode* prev=NULL;
+SinglyLinkedListNode* curr=llist;
+SinglyLinkedListNode* nxt;
+while(curr!=NULL){
+    nxt=curr->next;
+    curr->next=prev;
+    prev=curr;
+    curr=nxt;
+}
+while(prev!=NULL){
+    cout<<prev->data<<endl;
+    prev=prev->next;
+}
+}
