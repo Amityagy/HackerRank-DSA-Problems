@@ -1,0 +1,36 @@
+SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+SinglyLinkedListNode* h1=head1;
+SinglyLinkedListNode* h2=head2;
+SinglyLinkedListNode* nlist;
+SinglyLinkedListNode* head=NULL;
+if(h1->data<h2->data){
+    head=head1;
+    h1=h1->next;
+}
+else{
+    head=head2;
+    h2=h2->next;
+}
+nlist=head;
+while(h1!=NULL && h2!=NULL){
+    if(h1->data<h2->data){
+                nlist->next=h1;
+                h1=h1->next;
+            }
+            else{
+                nlist->next=h2;
+                h2=h2->next;
+            }
+
+    nlist=nlist->next;
+}
+if(h1==NULL){
+    nlist->next=h2;
+    return head;
+}
+else{
+    nlist->next=h1;
+    return head;
+}
+return head;
+}
