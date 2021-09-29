@@ -1,0 +1,14 @@
+bool has_cycle(SinglyLinkedListNode* head) {
+SinglyLinkedListNode* t=head;
+unordered_map<SinglyLinkedListNode*,int> umap;
+while(t!=NULL){
+    if(umap.find(t)==umap.end()){
+        umap[t]=t->data;
+        t=t->next;
+    }
+    else {
+    return 1;
+    }
+}
+return 0;
+}
