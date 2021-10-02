@@ -1,0 +1,16 @@
+vector<int> matchingStrings(vector<string> strings, vector<string> queries) {
+int ns=strings.size(),nq=queries.size();
+int i=0;
+vector<int> countarr;
+while(i<nq){
+    int count=0;
+    int j=0;
+    while(j<ns){
+        if(queries[i]==strings[j]) count++;
+        j++;
+    }
+    countarr.push_back(count);
+    i++;
+}
+return countarr;
+}
