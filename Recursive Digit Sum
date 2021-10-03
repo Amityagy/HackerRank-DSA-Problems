@@ -1,0 +1,10 @@
+int superDigit(string n, int k) {
+int len=n.length();
+if(len==1 && stoi(n)*k<=9) return k*stoi(n);
+long sum=0;
+for(char ch:n){
+    sum +=ch-'0';
+}
+if(sum*k<=9) return sum*k;
+else return superDigit(to_string(sum*k),1);
+}
