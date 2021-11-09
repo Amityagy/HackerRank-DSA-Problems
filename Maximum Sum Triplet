@@ -1,0 +1,28 @@
+int Solution::solve(vector<int> &A) {
+    int l=A.size();
+    int i=0;
+    vector<int> maxsum;
+    while(i<l-2){
+        int temp=A[i];
+        int j=i+1;
+        while(j<l-1){
+            if(A[j]>A[i]){
+                temp +=A[j];
+                int k=j+1;
+                while(k<l){
+                    if(A[k]>A[j]){
+                        temp +=A[k];
+                        maxsum.push_back(temp);
+                        temp = temp-A[k];
+                    }
+                    k++;
+                }
+                temp=temp-A[j];
+            }
+            
+            j++;
+        }
+        i++;
+    }
+    return *max_element(maxsum.begin(), maxsum.end());
+}
